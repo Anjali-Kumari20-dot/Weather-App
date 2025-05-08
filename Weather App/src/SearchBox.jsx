@@ -6,45 +6,54 @@ import { IconButton } from "@mui/material";
 import "./SearchBox.css";
 import { useState } from "react";
 
-export default function SearchBox() {
+export default function SearchBox({ UpdateInfo }) {
   let [city, setCity] = useState("");
+  let [error, setError] = useState(false);
 
   let API_URL = "https://api.openweathermap.org/data/2.5/weather";
   const API_KEY = "313f9a1717c75955e6effe713ccce49f";
 
   let getWeatherInfo = async (city) => {
-    let response = await fetch(
-      `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
-    );
-    let jsonResponse = await response.json();
-    console.log(jsonResponse);
+    try {
+      let response = await fetch(
+        `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
+      );
+      let jsonResponse = await response.json();
+      console.log(jsonResponse);
 
-    let result = {
-        city:city,
+      let result = {
+        city: city,
         temp: jsonResponse.main.temp,
         tempMin: jsonResponse.main.temp_min,
         tempMax: jsonResponse.main.temp_max,
         humidity: jsonResponse.main.humidity,
         feelsLike: jsonResponse.main.feels_like,
         weather: jsonResponse.weather[0].description,
-    };
-    console.log(result);
+      };
+      return result;
+    } catch (err) {
+      throw err;
+    }
   };
 
-  let handleChange = (event) => {
+  let handleChange = async (event) => {
     setCity(event.target.value);
   };
 
-  let handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(city);
-    setCity("");
-    getWeatherInfo(city);
+  let handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      console.log(city);
+      setCity("");
+      let newInfo = await getWeatherInfo(city);
+      UpdateInfo(newInfo);
+    } catch (err) {
+      setError(true);
+    }
   };
 
   return (
     <div>
-      <h3>Search for a city or airport</h3>
       <form action="" onSubmit={handleSubmit}>
         <div className="searchBox">
           <TextField
@@ -65,6 +74,7 @@ export default function SearchBox() {
             }}
           />
         </div>
+        {error && <p style={{color: "red"}}>No such place exits!</p>}
       </form>
     </div>
   );
