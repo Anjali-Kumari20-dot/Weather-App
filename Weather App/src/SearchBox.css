@@ -1,0 +1,8 @@
+.searchBox .MuiInputBase-root{
+    height: 5rem;
+    width: 25rem;
+    border: 1px solid purple;
+    /* background-color: rgb(46, 7, 46); */
+    color: purple;
+    border-radius: 2rem;
+}
