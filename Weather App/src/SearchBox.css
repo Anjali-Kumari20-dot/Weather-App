@@ -1,8 +1,66 @@
-.searchBox .MuiInputBase-root{
+/* .searchBox .MuiInputBase-root{
     height: 5rem;
-    width: 25rem;
-    border: 1px solid purple;
+    width: 500px;
+    border: 1px solid purple; */
     /* background-color: rgb(46, 7, 46); */
+    /* color: purple;
+    border-radius: 2rem;
+} */
+.searchBox .MuiOutlinedInput-root {
+    height: 5rem;
+    width: 100%;
+    max-width: 500px;
     color: purple;
     border-radius: 2rem;
+}
+
+/* Override the default focus border color */
+.searchBox .MuiOutlinedInput-root.Mui-focused {
+    border-color: purple !important;
+}
+
+/* Ensure input text is styled */
+.searchBox .MuiOutlinedInput-input {
+    color: white !important;
+}
+
+/* Override label focus color */
+.searchBox .MuiInputLabel-root.Mui-focused {
+    color: white !important;
+    font-size: larger;
+}
+
+.searchBox .MuiOutlinedInput-root:hover {
+    border-color: purple !important;
+    border-width: 5px;
+}
+
+/* Ensure label color changes on hover */
+.searchBox .MuiInputLabel-root:hover {
+    color: purple !important;
+}
+.searchBox .MuiOutlinedInput-root:hover {
+    border-color: purple !important;
+    border-width: 5px;
+}
+
+@media(max-width: 768px){
+    .searchBox .MuiOutlinedInput-root{
+        height: 4rem;
+        max-width: 80vh;
+        border-radius: 1.5rem;
+    }
+    .searchBox .MuiInputLabel-root{
+        font-size: medium;
+    }
+}
+@media(max-width: 480px){
+    .searchBox .MuiOutlinedInput-root{
+        height: 3.5rem;
+        max-width: 90vh;
+        border-radius: 1rem;
+    }
+    .searchBox .MuiInputLabel-root{
+        font-size: small;
+    }
 }

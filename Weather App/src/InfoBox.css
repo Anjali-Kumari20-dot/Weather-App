@@ -1,3 +1,17 @@
 .InfoBox {
     text-align: center;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.MuiCard-root {
+    border-radius: 1.5rem !important;
+    height: 500px;
+    box-shadow: 5px 5px 15px rgba(128, 0, 128, 0.4); /* Purple tint */
+    /* background-color: purple !important; */
+}
+.MuiPaper-root{
+    background-color: rgb(221, 170, 221) !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adds a shadow */
 }

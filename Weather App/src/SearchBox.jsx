@@ -1,7 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-import Button from "@mui/material/Button";
 import { IconButton } from "@mui/material";
 import "./SearchBox.css";
 import { useState } from "react";
@@ -27,7 +26,7 @@ export default function SearchBox({ UpdateInfo }) {
         tempMin: jsonResponse.main.temp_min,
         tempMax: jsonResponse.main.temp_max,
         humidity: jsonResponse.main.humidity,
-        feelsLike: jsonResponse.main.feels_like,
+        feelslike: jsonResponse.main.feels_like,
         weather: jsonResponse.weather[0].description,
       };
       return result;
@@ -63,6 +62,16 @@ export default function SearchBox({ UpdateInfo }) {
             required
             value={city}
             onChange={handleChange}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "&.Mui-focused": {
+                  borderColor: "purple", // Change outline color
+                },
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "purple", // Change label color
+              },
+            }}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -74,7 +83,7 @@ export default function SearchBox({ UpdateInfo }) {
             }}
           />
         </div>
-        {error && <p style={{color: "red"}}>No such place exits!</p>}
+        {error && <p style={{ color: "red" }}>No such place exits!</p>}
       </form>
     </div>
   );

@@ -1,0 +1,19 @@
+.box{
+    border: 0.1rem solid purple;
+    padding:  0 4rem 0.5rem 4rem  ;
+    border-radius: 3rem;
+    background-color: rgb(221, 170, 221);
+    height: auto;
+    max-width: 90vw;
+    width: 100%;
+    box-shadow: 3px 3px 10px rgba(128, 0, 128, 0.4); /* Purple-tinted shadow on smaller screens */
+
+}
+@media (max-width: 768px) {
+    .box{
+        width: 85vh;
+        padding: 1rem;
+        border-radius: 2rem;
+        box-shadow: 10px 10px 10px rgba(128, 0, 128, 0.4); /* Purple-tinted shadow on smaller screens */
+    }
+}

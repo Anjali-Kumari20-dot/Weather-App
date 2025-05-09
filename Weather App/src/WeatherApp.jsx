@@ -19,8 +19,8 @@ export default function WeatherApp() {
   }
 
   return (
-    <div>
-      <h2>Weather App by Anjali</h2>
+    <div className="box">
+      <h2>Sky Watch: Your Weather Hub</h2>
       <SearchBox UpdateInfo={UpdateInfo}/>
       <InfoBox info={weatherInfo}/>
     </div>
